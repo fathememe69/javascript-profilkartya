@@ -21,6 +21,7 @@ const nameInput = document.querySelector("#displayName");
 const roleInput = document.querySelector("#role");
 const technologyInput = document.querySelector("#technology");
 const resetButton = document.querySelector("#resetButton");
+const themeButton = document.querySelector("#themeButton");
 const cardName = document.querySelector("#cardName");
 const cardRole = document.querySelector("#cardRole");
 const cardTechnology = document.querySelector("#cardTechnology");
@@ -91,3 +92,13 @@ form.addEventListener("submit", function (event) {
   });
 
 // 5. A témaváltó eseménykezelő csak a feature/sotet-tema ágon készül el.
+
+themeButton.addEventListener("click", function () {
+  const darkThemeEnabled = document.body.classList.toggle("dark-theme");
+
+  themeButton.setAttribute("aria-pressed", String(darkThemeEnabled));
+  themeButton.textContent = darkThemeEnabled ? "Világos téma" : "Sötét téma";
+  showStatus(
+    darkThemeEnabled ? "A sötét téma bekapcsolva." : "A világos téma bekapcsolva."
+  );
+});
